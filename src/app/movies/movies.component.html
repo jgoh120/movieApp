@@ -1,0 +1,20 @@
+
+<div class="d-flex flex-wrap p-4 justify-content-between">
+    <div class="card mb-4" style="width: 14rem" *ngFor="let movie of movies">
+        <img [src]="movie.posterUrl" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">{{movie.title}}</h5>
+            <p class="card-text">{{movie.genre}}</p>
+        </div>
+        <div class="card-footer">
+            <span class="badge badge-secondary">{{movie.rating}}</span>
+        </div>
+    </div>
+</div>
+<a routerLink="/new-movie"><button class="btn btn-success" > Add new movie </button></a>
+
+<br>
+---------------------------------------------
+<br>
+
+<button class="btn btn-lg btn-outline-primary" (click)="presentNewMovieModal()">Launch modal to add movie</button>
