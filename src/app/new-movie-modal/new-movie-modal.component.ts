@@ -13,7 +13,8 @@ export class NewMovieModalComponent implements OnInit {
 
   movieForm: FormGroup
 
-  constructor(public activeModal: NgbActiveModal, private movieService: MovieService, private formBuilder: FormBuilder) { 
+  constructor(public activeModal: NgbActiveModal, private movieService: MovieService, 
+              private formBuilder: FormBuilder) { 
     this.movieForm = this.formBuilder.group({
       title: [''],
       posterUrl: [''],

@@ -29,7 +29,6 @@ export class NewMovieComponent implements OnInit {
           posterUrl: [null],
           genre: [null, Validators.required],
           rating:[null, Validators.required]
-
       });
     } 
 
@@ -39,10 +38,7 @@ export class NewMovieComponent implements OnInit {
       .subscribe((res: any) => {
         //const id = res._id;
         this.router.navigate(['/movies']);
-
       });
-  
-  
   }
 
 }

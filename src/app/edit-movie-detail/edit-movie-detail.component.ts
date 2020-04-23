@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MovieService } from '../movie.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from "@angular/forms";
+
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'abc-edit-movie-detail',
@@ -10,17 +12,33 @@ import { FormGroup, FormBuilder, FormControl, Validators } from "@angular/forms"
 })
 export class EditMovieDetailComponent implements OnInit {
 
+  @Input()
+  movieId: string;
+  /*
   movieForm: FormGroup;
     id: '';
     title: '';
     posterUrl: string = '';
     genre: string = '';
-    rating: number = null;
+    rating: number = null;  */
 
-  constructor(private router: Router, private route: ActivatedRoute, private movieService: MovieService, private formBuilder: FormBuilder) { }
+    movieForm: FormGroup
+
+  constructor(private router: Router, private route: ActivatedRoute, 
+              private movieService: MovieService, private formBuilder: FormBuilder,
+              private activeModal: NgbActiveModal) {
+
+                this.movieForm = this.formBuilder.group({
+                  title: [''],
+                  posterUrl: [''],
+                  genre: [''],
+                  rating:['']
+                  })
+              }
 
   ngOnInit(): void {
-    this.getMovieById(this.route.snapshot.params.id);
+    console.log(this.movieId);
+    this.getMovieById(this.movieId);
     this.movieForm = this.formBuilder.group({
       id: [null, Validators.required],
       title: [null, Validators.required],
@@ -33,7 +51,7 @@ export class EditMovieDetailComponent implements OnInit {
   getMovieById(id: any){
     this.movieService.getMovieById(id).subscribe((data: any)=>{
       this.movieForm.setValue({
-        id: data.id,
+        id: data._id,
         title: data.title,
         genre: data.genre,
         rating: data.rating,
@@ -43,14 +61,14 @@ export class EditMovieDetailComponent implements OnInit {
   }
 
   onFormSubmit(){
-    this.movieService.updateMovie(this.id, this.movieForm.value)
+    this.movieService.updateMovie(this.movieId, this.movieForm.value)
     .subscribe((res: any) => {
-      this.router.navigate(['/movies']);
-    }
-    );
+      this.activeModal.close();
+      location.reload()
+      /*this.movieService.getMovies().subscribe(movies =>{
+        this.movieService.movieList = movies;
+      });*/
+    });
   }
-
-  
-
 
 }

@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NewMovieModalComponent } from './new-movie-modal/new-movie-modal.component';
+import { MoviesListComponent } from './movies-list/movies-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NewMovieModalComponent } from './new-movie-modal/new-movie-modal.compon
     MoviesComponent,
     NewMovieComponent,
     EditMovieDetailComponent,
-    NewMovieModalComponent
+    NewMovieModalComponent,
+    MoviesListComponent
   ],
   imports: [
     BrowserModule,

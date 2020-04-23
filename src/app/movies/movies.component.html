@@ -5,6 +5,8 @@
         <div class="card-body">
             <h5 class="card-title">{{movie.title}}</h5>
             <p class="card-text">{{movie.genre}}</p>
+            <button class="btn btn-primary mr-2" (click)="presentEditMovieModal(movie._id)">Edit this movie</button>
+            <button class="btn btn-danger mr-2" (click)="deleteMovie(movie._id)">Delete movie</button>
         </div>
         <div class="card-footer">
             <span class="badge badge-secondary">{{movie.rating}}</span>
@@ -17,4 +19,4 @@
 ---------------------------------------------
 <br>
 
-<button class="btn btn-lg btn-outline-primary" (click)="presentNewMovieModal()">Launch modal to add movie</button>
+<button class="btn btn-info mr-2" (click)="presentNewMovieModal()">Launch modal to add movie</button>

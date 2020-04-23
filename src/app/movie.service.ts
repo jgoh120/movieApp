@@ -11,6 +11,7 @@ const apiUrl = 'http://localhost:3000/movies';
 })
 export class MovieService {
 
+  public movieList:Movie[] = []
   
   constructor(private http: HttpClient) { }
 
@@ -24,6 +25,11 @@ export class MovieService {
   getMovies(): Observable<Movie[]>{
     return this.http.get<Movie[]>('http://127.0.0.1:3000/movies');
   }
+
+  getMoviesList(): Observable<Movie[]>{
+    return this.http.get<Movie[]>('http://127.0.0.1:3000/moviesList');
+  }
+
 
   addMovie(movie: Movie): Observable<any>{
     return this.http.post(apiUrl, movie,  {responseType: 'text'}); 
@@ -54,6 +60,14 @@ export class MovieService {
     return this.http.put(url, movie).pipe(
       tap(_ => console.log(`updated movies id=${id}`)),
       catchError(this.handleError<any>('updateMovie'))
+    );
+  }
+
+  deleteMovie(id: string): Observable<any>{
+    const url = `${apiUrl}/${id}`;
+    return this.http.delete(url).pipe(
+      tap(_ => console.log(`deleted movies id=${id}`)),
+      catchError(this.handleError<any>('deleteMovie'))
     );
   }
 
