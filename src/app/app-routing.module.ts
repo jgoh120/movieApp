@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { NewMovieComponent } from './new-movie/new-movie.component';
 import { EditMovieDetailComponent } from './edit-movie-detail/edit-movie-detail.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
     path: 'edit-movie/:id',
     component: EditMovieDetailComponent,
     // data: { title: 'Edit Sales'}
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'home',
