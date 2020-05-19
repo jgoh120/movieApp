@@ -1,6 +1,7 @@
 <div class="card">
   <div class="card-body">
     <form [formGroup]="movieForm" (ngSubmit)="onSubmitNewMovie()" novalidate>
+      
       <div class="form-group">
         <label class="col-md-2">Title</label>
         <input type="text" formControlName = "title" >
@@ -46,6 +47,7 @@
         [disabled] = "movieForm.pristine || movieForm.invalid">
         Add Movie</button>
       </div>
+      
     </form>
   </div>
 </div>

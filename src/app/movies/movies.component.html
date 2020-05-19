@@ -5,18 +5,18 @@
         <div class="card-body">
             <h5 class="card-title">{{movie.title}}</h5>
             <p class="card-text">{{movie.genre}}</p>
-            <button class="btn btn-primary mr-2" (click)="presentEditMovieModal(movie._id)">Edit this movie</button>
-            <button class="btn btn-danger mr-2" (click)="deleteMovie(movie._id)">Delete movie</button>
+            <button *ngIf="isLogin" class="btn btn-primary mr-2" (click)="presentEditMovieModal(movie._id)">Edit this movie</button>
+            <button *ngIf="isLogin" class="btn btn-danger mr-2" (click)="deleteMovie(movie._id)">Delete movie</button>
         </div>
         <div class="card-footer">
             <span class="badge badge-secondary">{{movie.rating}}</span>
         </div>
     </div>
 </div>
-<a routerLink="/new-movie"><button class="btn btn-success" > Add new movie </button></a>
+<a *ngIf="isLogin" routerLink="/new-movie"><button class="btn btn-success" > Add new movie </button></a>
 
 <br>
 ---------------------------------------------
 <br>
 
-<button class="btn btn-info mr-2" (click)="presentNewMovieModal()">Launch modal to add movie</button>
+<button *ngIf="isLogin" class="btn btn-info mr-2" (click)="presentNewMovieModal()">Launch modal to add movie</button>

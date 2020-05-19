@@ -6,9 +6,8 @@ import { tap, map, catchError } from 'rxjs/operators'
 
 const apiUrl = 'http://localhost:3000/movies';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
+
 export class MovieService {
 
   public movieList:Movie[] = []
@@ -29,7 +28,6 @@ export class MovieService {
   getMoviesList(): Observable<Movie[]>{
     return this.http.get<Movie[]>('http://127.0.0.1:3000/moviesList');
   }
-
 
   addMovie(movie: Movie): Observable<any>{
     return this.http.post(apiUrl, movie,  {responseType: 'text'}); 

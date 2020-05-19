@@ -18,6 +18,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NewMovieModalComponent } from './new-movie-modal/new-movie-modal.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { LogoutComponent } from './logout.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { LoginComponent } from './login/login.component';
     EditMovieDetailComponent,
     NewMovieModalComponent,
     MoviesListComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

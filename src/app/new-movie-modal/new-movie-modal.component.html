@@ -1,6 +1,7 @@
 <div class="card">
     <div class="card-body">
       <form [formGroup]="movieForm" (ngSubmit)="submitNewMovieModal()" novalidate>
+        
         <div class="form-group">
           <label class="col-md-2">Title</label>
           <input type="text" formControlName = "title" >

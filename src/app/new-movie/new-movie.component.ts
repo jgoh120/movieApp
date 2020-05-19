@@ -32,7 +32,6 @@ export class NewMovieComponent implements OnInit {
       });
     } 
 
-  
   onSubmitNewMovie(){
     this.movieService.addMovie(this.movieForm.value)
       .subscribe((res: any) => {

@@ -30,7 +30,12 @@ export class MoviesComponent implements OnInit {
 
   constructor(private movieService: MovieService, private modalService: NgbModal) { }
 
+  isLogin: boolean=true;
+  
   ngOnInit() {
+    if(localStorage.getItem('currentUser') == null){
+      this.isLogin = false;
+    } 
     this.fetchMovies();
   }
 

@@ -8,10 +8,14 @@ import { EditMovieDetailComponent } from './edit-movie-detail/edit-movie-detail.
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { LoginComponent } from './login/login.component';
 
+import { AuthGuard } from './helper/auth.guard';
+import { SignupComponent } from './signup/signup.component';
+
 const routes: Routes = [
   {
     path:'movies',
     component: MoviesComponent
+    //canActivate: [AuthGuard]
   },
   {
     path: 'reviews',
@@ -19,16 +23,18 @@ const routes: Routes = [
   },
   {
     path: 'new-movie',
-    component: NewMovieComponent
+    component: NewMovieComponent,
+    canActivate: [AuthGuard]
     // data: { title: 'Add Movie' }
   },
   {
     path: 'movies-list',
-    component: MoviesListComponent
+    component: MoviesListComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'edit-movie/:id',
-    component: EditMovieDetailComponent,
+    component: EditMovieDetailComponent
     // data: { title: 'Edit Sales'}
   },
   {
@@ -36,9 +42,14 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'signup',
+    component: SignupComponent
+  },
+  {
     path: 'home',
     pathMatch: 'full',
     component: HomeComponent
+    
   },
   {
     path:'**',
