@@ -19,7 +19,7 @@ import { NewMovieModalComponent } from './new-movie-modal/new-movie-modal.compon
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { LogoutComponent } from './logout.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [

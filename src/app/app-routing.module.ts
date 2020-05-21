@@ -7,6 +7,7 @@ import { NewMovieComponent } from './new-movie/new-movie.component';
 import { EditMovieDetailComponent } from './edit-movie-detail/edit-movie-detail.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 import { AuthGuard } from './helper/auth.guard';
 import { SignupComponent } from './signup/signup.component';
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent
   },
   {
     path: 'signup',
